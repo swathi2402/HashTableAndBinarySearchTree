@@ -15,7 +15,7 @@ public class HashMapMain {
 			}
 			myLinkedHshMap.add(word, value);
 		}
-		System.out.println(myLinkedHshMap); 
+		myLinkedHshMap.remove("avoidable");
 	}
 
 }

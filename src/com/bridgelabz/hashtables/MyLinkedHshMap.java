@@ -2,10 +2,11 @@ package com.bridgelabz.hashtables;
 
 import java.util.ArrayList;
 
+import com.bridgelabz.linkedlist.INode;
 import com.bridgelabz.linkedlist.MyLinkedList;
 
 public class MyLinkedHshMap<K, V> {
-	
+
 	private final int numberOfBuckets;
 	ArrayList<MyLinkedList<K>> myBucketArray;
 
@@ -48,7 +49,17 @@ public class MyLinkedHshMap<K, V> {
 			myMapNode.setValue(value);
 		}
 	}
-	
+
+	public void remove(K key) {
+		int index = this.getBucketIndex(key);
+		MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
+		if(myLinkedList==null) {
+			System.out.println("The word " + key + " is not present");
+			return;
+		}
+		myLinkedList.head = null;		
+	}
+
 	@Override
 	public String toString() {
 		return "MyLinkedHashMap { " + myBucketArray + " } ";
